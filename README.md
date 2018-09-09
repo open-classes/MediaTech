@@ -7,7 +7,7 @@
 - [ ] [多媒体开源架构 R&D](media-framework/README.md)
 - [ ] [多媒体国际标准 R&D](media-standard/README.md)
 - [ ] [多媒体论文 R&D](media-paper/README.md)
-- [ ] [计算机视觉/OpenCV](opencv/README.md)
+- [ ] [计算机视觉/OpenCV](media-framework/opencv/README.md)
 - [ ] [视频质量评价](video-quality/README.md)
 - [ ] [视频通话技术](video-chat/README.md)
 
