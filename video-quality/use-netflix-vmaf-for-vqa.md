@@ -25,3 +25,48 @@ Netflix将VMAF与性能最高的传统算法PSNRHVS进行了比较。VMAF的分�
 ![VMAF compared to PSNRVHS](./images/vmaf-vs-psnr-vhs.png)
 
 ## 2 具体评估步骤
+
+### 2.1 软硬件环境要求
+- 使用类Linux操作系统(ubuntu或者debain操作系统)
+- 在操作系统上安装ffmpeg用于文件转码
+- 参考附录安装相关软件环境
+
+### 2.2 评价图像质量的方法
+
+- 转换图像格式(YUV -> JPG/BMP)
+
+$ ffmpeg -i test-yuv420p.yuv -s 1280x720 -pix_fmt yuv420p test-1280x720.jpg  
+$ ffmpeg -i test-yuv420p.yuv -s 1280x720 -pix_fmt yuv420p test-1280x720.bmp  
+
+- 转换图像格式(JPG/BMP -> YUV)
+
+$ ffmpeg -i test-1280x720.jpg -s 1280x720 -pix_fmt yuv420p test-yuv420p-720p.yuv -y  
+$ ffmpeg -i test-1280x720.bmp -s 1280x720 -pix_fmt yuv420p test-yuv420p-720p.yuv -y  
+
+- 评价图像质量
+
+$ ./run_vmaf --help
+$ ./run_vmaf yuv420p 1280 720 ref_image_720p.yuv test_image_720p.yuv --out-fmt json
+
+### 2.3 评价视频质量的方法
+
+$ ./run_vmaf --help
+$ source ~/.bash_profile
+$ ./run_vmaf yuv420p 1280 720 ref_video_720p.yuv test_video_720p.yuv --out-fmt text --local-explain
+
+## 3 附录
+
+### 3.1 安装python虚拟环境
+
+- 建立python2.7虚拟环境。使用pip工具即可安装
+- 在python2.7虚拟环境安装科学计算相关的软件包
+
+### 3.2 ffmpeg安装方法
+
+- 下载ffmpeg源码: https://github.com/FFmpeg/FFmpeg
+- 参考网络教程编译并配置：https://blog.csdn.net/u012814360/article/details/39345431
+
+### 3.3 netflix-vmaf安装方法
+
+- 下载vmaf源码：https://github.com/Netflix/vmaf
+- 参考网络教程编译并配置：https://testerhome.com/topics/11888
