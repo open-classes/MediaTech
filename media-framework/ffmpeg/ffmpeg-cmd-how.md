@@ -221,3 +221,9 @@ http://www.ffmpeg.org/ffmpeg-filters.html
 ## 6 ffmpeg将图片转换为视频
 
 http://blog.sina.com.cn/s/blog_40d73279010113c2.html
+
+## 7 音频视频重新编码muxer
+
+```shell
+ffmpeg -i rkdc2019_allday.mov -pix_fmt yuv420p -c:v libx264 -c:a aac rkdc2019_h264_yuv420p.mp4
+```
