@@ -14,7 +14,7 @@ ffmpeg需要将-minrate和-maxrate设置为和-bitrate参数设置为同一个�
 
 ```bash
 #!/bin/bash
-$ ffmpeg -i 480p-src.mp4 -c:v libX265 -b:v 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k H264-cbr-4m.mp4
+$ ffmpeg -i 480p-src.mp4 -c:v libx265 -b:v 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k H264-cbr-4m.mp4
 ```
 
 #### 可变目标码率(Variable Bit Rate-VBR)
@@ -23,8 +23,8 @@ VBR编码策略：为简单场景分配较大的QP，为复杂的场景分配较
 
 ```bash
 #!/bin/bash
-$ ffmpeg -y -i 480p-src.mp4 -c:v libx264 -b:v 3000k -pass 1 -an -f mp4 /dev/null && \
-$ ffmpeg -i 480p-src.mp4 -c:v libx264 -b:v 3000k -pass 2 H264-abr-3m.mp4
+$ ffmpeg -y -i 480p-src.mp4 -c:v libx265 -b:v 3000k -pass 1 -an -f mp4 /dev/null && \
+$ ffmpeg -i 480p-src.mp4 -c:v libx265 -b:v 3000k -pass 2 H264-abr-3m.mp4
 ```
 
 #### 平均目标码率(Average Bit Rate-ABR)
@@ -33,7 +33,7 @@ ABR编码策略：对简单场景少分配比特；对复杂场景多分配比�
 
 ```bash
 #!/bin/bash
-$ ffmpeg -i 480p-src.mp4 -c:v libx264 -b:v 3000k -pass 1 H264-abr-3m.mp4
+$ ffmpeg -i 480p-src.mp4 -c:v libx265 -b:v 3000k -pass 1 H264-abr-3m.mp4
 ```
 
 码率控制 | 视觉质量 | 输出码率 | 文件大小
@@ -41,9 +41,6 @@ $ ffmpeg -i 480p-src.mp4 -c:v libx264 -b:v 3000k -pass 1 H264-abr-3m.mp4
 CBR | 不稳定 | 恒定 | 可控
 VBR | 稳定 | 变化 | 不可控
 CBR | 相对稳定 | 变化 | 相对可控
-
-
-
 
 ### 1.2 Constant Picture Quality(CPQ)
 
