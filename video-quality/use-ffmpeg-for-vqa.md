@@ -19,6 +19,7 @@ FFmpeg是领先的多媒体框架，能够解码，编码， 转码，复用，�
 
 ```bash
 #!/bin/bash
+$ ffmpeg.exe -codecs | grep hevc
 $ ffmpeg.exe -i H264-BluePlanet-1080p-30fps-4.0M.mp4 -vcodec hevc -s 720*480 blue-720x480.mp4
 $ ffmpeg.exe -i blue-720x480.mp4 -c:v libx265 -crf 27 blue-720x480-crf27.mp4
 $ ffmpeg.exe -i blue-720x480.mp4 -c:v libx265 -crf 51 blue-720x480-crf51.mp4
@@ -67,5 +68,7 @@ $ ffmpeg -i blue-720x480.mp4 -c:v libx265 -crf 0 -an hevc-480p-lossless.mp4
 ## 参考资料
 
 - [视频质量专家组-视频数据集和组织](https://www.its.bldrdoc.gov/vqeg/video-datasets-and-organizations.aspx)
-- [ffmpeg-psnr](https://ffmpeg.org/ffmpeg-all.html#psnr)
-- [ffmpeg-ssim](https://ffmpeg.org/ffmpeg-all.html#ssim)
+- [FFMPEG: psnr](https://ffmpeg.org/ffmpeg-all.html#psnr)
+- [FFMPEG: ssim](https://ffmpeg.org/ffmpeg-all.html#ssim)
+- [FFMPEG: H.264 Video Encoding Guide](https://trac.ffmpeg.org/wiki/Encode/H.264)
+- [FFMPEG: H.265 Video Encoding Guide](https://trac.ffmpeg.org/wiki/Encode/H.265)

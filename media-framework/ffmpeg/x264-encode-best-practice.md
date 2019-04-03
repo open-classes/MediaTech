@@ -66,3 +66,8 @@ ffmpeg -i input -c:v libx264 -crf 20 -maxrate 400k -bufsize 1835k
 这将会有效的将crf值锁定在20，但是如果输出码率超过400kbps，在这种情况下编码器会将质量降低到低于crf 20。
 
 ## 2 X264编码性能测试
+
+## 参考资料
+
+- [FFMPEG: H.264 Video Encoding Guide](https://trac.ffmpeg.org/wiki/Encode/H.264)
+- [FFMPEG: H.265 Video Encoding Guide](https://trac.ffmpeg.org/wiki/Encode/H.265)
